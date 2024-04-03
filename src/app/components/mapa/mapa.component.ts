@@ -88,6 +88,21 @@ export class MapaComponent implements OnInit {
   
 
 // En tu componente Angular
+
+
+calcularDistanciaTotal(response: google.maps.DirectionsResult): number {
+  let distanciaTotal = 0;
+
+  const route = response.routes[0];
+  for (const leg of route.legs) {
+    distanciaTotal += leg.distance.value; // Sumar la distancia de cada tramo
+  }
+
+  // Convertir la distancia a kilómetros y retornarla
+  return distanciaTotal / 1000; // Convertir de metros a kilómetros
+}
+
+
 calcularRuta2(origen: string, destino: string) {
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -107,18 +122,6 @@ calcularRuta2(origen: string, destino: string) {
       window.alert('Error al calcular la ruta: ' + status);
     }
   });
-}
-
-calcularDistanciaTotal(response: google.maps.DirectionsResult): number {
-  let distanciaTotal = 0;
-
-  const route = response.routes[0];
-  for (const leg of route.legs) {
-    distanciaTotal += leg.distance.value; // Sumar la distancia de cada tramo
-  }
-
-  // Convertir la distancia a kilómetros y retornarla
-  return distanciaTotal / 1000; // Convertir de metros a kilómetros
 }
 
 

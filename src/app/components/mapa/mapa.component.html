@@ -1,4 +1,8 @@
-<input type="text" placeholder="Dirección de origen" #inputOrigen>
-<input type="text" placeholder="Dirección de destino" #inputDestino>
-<button (click)="calcularRuta()">Calcular ruta</button>
-<div #mapa class="w-full h-screen" id="map"></div>
+<div class="p-5">
+    <input class="w-full p-1 rounded-lg mt-3 border shadow-md font-semibold" type="text" placeholder="Dirección de origen" #inputOrigen>
+    <input class="w-full p-1 rounded-lg mt-3 border shadow-md font-semibold" type="text" placeholder="Dirección de destino" #inputDestino>
+    <button class="mt-3 p-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg" (click)="calcularRuta()">Calcular ruta</button>
+</div>
+<div class="w-full p-5 rounded-lg">
+    <div #mapa class="w-[500px] h-[500px] rounded-lg border shadow-md" id="map"></div>
+</div>
